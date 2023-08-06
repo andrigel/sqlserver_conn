@@ -19,6 +19,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import android.util.Log
 
 class SqlserverConnPlugin : FlutterPlugin, MethodCallHandler {
     private lateinit var channel: MethodChannel
@@ -132,7 +133,8 @@ class SqlserverConnPlugin : FlutterPlugin, MethodCallHandler {
                             } else if (isBoolean) {
                                 data = string
                             } else {
-                                data = "\"$string\""
+                                val ecranated = string.replace("/","\\/").replace("\"","\\\"")
+                                data = "\"$ecranated\""          
                             }
                         } else {
                             data = "null"
