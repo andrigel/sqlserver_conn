@@ -133,7 +133,7 @@ class SqlserverConnPlugin : FlutterPlugin, MethodCallHandler {
                             } else if (isBoolean) {
                                 data = string
                             } else {
-                                val ecranated = string.replace("/","\\/").replace("\"","\\\"")
+                                val ecranated = string.replace("\\","\\\\").replace("/","\\/").replace("\"","\\\"")
                                 data = "\"$ecranated\""          
                             }
                         } else {
